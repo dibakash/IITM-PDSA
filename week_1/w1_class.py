@@ -2,7 +2,8 @@ import math
 
 """
 learning objectives:
-overriding built ins: prints __str__, __add__ etc
+overriding built ins:
+prints __str__, __add__, etc
 """
 
 
@@ -70,11 +71,3 @@ class Point:
     def __add__(self, p):
         return Point(self.x + p.x, self.y + p.y)
 
-
-print(math.radians(90))
-
-a = Point(3, 4)
-print(a)
-
-b = a + Point(10, 10)
-print(b)

@@ -1,10 +1,18 @@
-import modules
-from performance import Performance
+import sys
 
-a = Performance()
+sys.path.append("..")
 
-a.start()
-for i in range(100000):
-    ...
-a.stop()
-print(a.performance)
+from packages.performance import Performance as Clock
+
+
+def main():
+    clock = Clock()
+    clock.start()
+    print("hi")
+    clock.stop()
+
+    print(clock.performance)
+
+
+if __name__ == "__main__":
+    main()
