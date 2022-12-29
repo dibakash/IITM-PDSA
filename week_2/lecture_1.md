@@ -69,7 +69,7 @@ A common strategy is to use the divide and conquer approach (logarithmic) by div
   > after halving 10 more times, $10^6$ becomes $10^3$<br>
   > after halving 10 more times, $10^3$ becomes $1$
 
-$\therefore$ We'll require $10^9 \times 30$ computations with this approach which in terms of python will need $( 10^9 \times 30) / 10^7 = 3000 \space seconds = 50\space mins $. This is a huge improvement (obviously as compared to 3200 years) and is just a work of around 1 hour to carry out the needed verification amongst a population of 1 billion.
+$\therefore$ We'll require $10^9 \times 30$ computations with this approach which in terms of python will need $( 10^9 \times 30) / 10^7 = 3000 \space seconds = 50\space mins$. This is a huge improvement (obviously as compared to 3200 years) and is just a work of around 1 hour to carry out the needed verification amongst a population of 1 billion.
 
 This is basically tells us about importance of running time of an algorithm.
 
@@ -108,7 +108,7 @@ What happens with $n \log n$ algorithm?
 >
 > - $\log _2 100,000$ is under $20$
 > - as, $2^{10} = 1024 \approx 10^3 \Rightarrow 2^{20} \approx 10^6$
-> - $\Rightarrow 2^{19} \approx 5.something \times 10^5$)
+> - $\Rightarrow 2^{19} \approx 5.something \times 10^5$
 > - $\log _2 100000$ is certainly less than $20$
 >
 > Another way we can think is:
@@ -134,4 +134,4 @@ The first thing is we'll always be interested in comparing the functions $t(n)$ 
 
 > Ignore the constant factors
 
-For instance, we know that $n^3 > n^2$ is always $\forall \space n \in \{ +ve \space integers\}$. But what happens when we stick a constant, say 5000 in front of $n^2$ i.e. $5000 n^2$ ?
+For instance, we know that $n^3 > n^2$ is always $\forall \space n \in \set{ +ve \space integers }$ . But what happens when we stick a constant, say 5000 in front of $n^2$ i.e $5000 n^2$
