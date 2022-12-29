@@ -1,4 +1,4 @@
-$\usepackage{amsmath}$
+\usepackage{mathtools}
 > $ = 10^{18} / 10^7 = 10^{11} $ seconds!
 > <br> $ \Rightarrow 10^{11} \div 60 \approx 1.67 \times 10^9 $ mins
 > <br> $ \Rightarrow 1.67 \times 10^9 \div 60 \approx 2.78 \times 10^7 $ hours
