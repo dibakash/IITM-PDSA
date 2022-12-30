@@ -134,4 +134,131 @@ The first thing is we'll always be interested in comparing the functions $t(n)$ 
 
 > Ignore the constant factors
 
-For instance, we know that $n^3 > n^2$ is always $\forall \space n \in \set{ +ve \space integers }$ . But what happens when we stick a constant, say 5000 in front of $n^2$ i.e $5000 n^2$
+For instance, it obvious that $f(n) = n^3 >g(n) =  n^2$ is always $\forall \space n \in \set{ +ve \space integers }$. But what happens when we stick a constant, say 5000 in front of $n^2$ i.e $5000 n^2$? Here few things happen-
+
+> - For small $n$, $5000\times n^2$ will be bigger than $n^3$.
+>   - E.g. $8^3 < 5000.8^2$
+
+But, we are not really interested in small values of $n$ simply because the algorithms run on arbitrarily large numbers.
+
+We want to know as $n$ becomes larger, which of the algorithms perform better. Thus we are interested in something called -
+
+> Asymptotic Complexities
+>
+> - What happens in the limit, as $n$ becomes large
+> - $f(n) = n^3$ eventually grows faster than $g(n) =  n^2$
+>   - for small values of $n$ $f(n) < g(n)$, but
+>   - After $n = 5000$, $f(n)$ overtakes $g(n)$
+>     - $6000^3 > 5000 \times 6000^2$
+
+We are interested in these $t(n)$ in different forms that occur as different growth functions-
+
+> Typical growth functions
+>
+> - Logarithmic, Polynomials, Exponential ...
+>   - Logarithmic: dividing in halves / binary search
+>   - Polynomials: nested loops $n^2, n^3$ etc.
+>   - Exponential:
+>     - $2^n$ is the set of $n$ elements
+>     - example: Loading a truck that can only load subsets of objects while packing and moving; in such a way that it leaves least empty space in the truck.
+>
+> We try to match what $t(n)$ is proportional to -
+>
+> - E.g. $\log n, n, n\log n, n^2, n^3,..., 2^n, n!$
+> - Note:
+>   - $\log _2n$ means $\log n$ by default
+
+### Orders of Magnitude
+
+| input size | $\log n$ | $n$                  | $n\log n$            | $n^2$                | $n^3$                | $2^n$                | $n!$                  |
+| ---------- | -------- | -------------------- | -------------------- | -------------------- | -------------------- | -------------------- | --------------------- |
+| $10$       | $3.3$    | $10$                 | $33$                 | $100$                | $1000$               | $1000$               | $10^6$                |
+| $100$      | $6.6$    | $100$                | $660$                | $10^4$               | $10^6$               | $\color{red}10^{30}$ | $\color{red}10^{157}$ |
+| $1000$     | $10$     | $1000$               | $10^4$               | $10^6$               | $10^9$               |                      |                       |
+| $10^4$     | $13$     | $10^4$               | $10^5$               | $10^8$               | $\color{red}10^{12}$ |                      |                       |
+| $10^5$     | $17$     | $10^5$               | $10^6$               | $\color{red}10^{10}$ |                      |                      |                       |
+| $10^6$     | $20$     | $10^6$               | $10^7$               | $\color{red}10^{12}$ |                      |                      |                       |
+| $10^7$     | $23$     | $10^7$               | $10^8$               |                      |                      |                      |                       |
+| $10^8$     | $27$     | $10^8$               | $10^9$               |                      |                      |                      |                       |
+| $10^9$     | $30$     | $10^9$               | $\color{red}10^{10}$ |                      |                      |                      |                       |
+| $10^{10}$  | $33$     | $\color{red}10^{10}$ | $\color{red}10^{11}$ |                      |                      |                      |                       |
+
+approx. values of $t(n)$
+
+The above table shows that even for very small values of $n$, a large $t(n)$ quickly goes above reasonable/feasible limit
+
+On the other hand, we can go with very large inputs up to the functions $t(n) = n\log n$
+
+So, there are two sides to this story:
+
+1. Estimating how fast the algorithm will work and from there we can determine what the algorithm can be used for - what sizes of problems that the algorithm can handle
+2. Conversely, if we know the size of the problem, then we can determine whether we can get away with an inefficient algorithm or not.
+
+---
+
+## Measuring Running Time
+
+---
+
+Analysis should be independent of underlying hardware
+
+- Don't use actual time
+- Measure time in terms of **Basic Operations**
+
+We typically measure running time in terms of what we arbitrarily call Basic Operations
+
+Typical basic operations:
+
+- Compare two values
+  - <code>if x == y</code>
+- Assign a value to a variable
+  - <code>x = 6</code>
+- the idea of basic operations is somewhat flexible as it also depends on the programming language we are working with. We don't have to be very precise while defining the basic operations
+
+- E.g in python:
+
+```
+(x,y) = (y,x)
+```
+
+- In real the above 1 line code takes 3 steps. i.e. 3 times the one line code
+
+```
+t=x
+x=y
+y=t
+```
+
+- If we ignore constants, focus on orders of magnitude, both are within a factor of 3
+- Hence, we need not be very precise in defining operations.
+- In other words, if there are 7 steps in a code block and we just consider them as 1 as it is always going to be 7 steps and not proportional to the input size.
+
+---
+
+### What is the input size
+
+---
+
+Typically a Natural Parameter constitutes the input size.
+
+E.g.
+
+- size of a list/ array that we want to search or sort
+- number of objects that we want to rearrange
+- number of **Vertices** and number of **Edges** in a **Graph**
+  - these are two separate natural parameters
+  - When we are looking at graphs the input size consists of number of vertices and separately of number of edges
+    - E.g. there may be graphs with many vertices but very few edges
+
+```mermaid
+flowchart LR;
+    1((v1));2((v2));3((v3));4((v4));
+    5((v5));
+
+    1 -- Edge1--- 2;
+    1 -- Edge4--- 4;
+    1 -- Edge6--- 5;
+    2 -- Edge2--- 3;
+    2 -- Edge3--- 4;
+    4 -- Edge5--- 5;
+```
