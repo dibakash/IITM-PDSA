@@ -284,46 +284,37 @@ How should we measure the complexity of an Algorithm that computes whether $n$ i
 
 - Here magnitude of $n$ (proportional to the value of $n$) is not the correct measure.
 
-  > If we consider the magnitude of $n$ as the measure of running time then :-
-  >
-  > The algorithm should take 10 times longer to determine if 4367 is a prime number than it should take to determine if 387 is a prime number. However, we know that this is not usually the case because arithmetic operations are performed one digit at a time.
-  >
-  > Meaning, the measure is not done according to the magnitude but according to the number of digits
+  - If we consider the magnitude of $n$ as the measure of running time then :-
+
+  - The algorithm should take 10 times longer to determine if 4367 is a prime number than it should take to determine if 387 is a prime number. However, we know that this is not usually the case because arithmetic operations are performed one digit at a time.
+  - Meaning, the measure is not done according to the magnitude but according to the number of digits
+
+$$
+\begin{array}{rl}
+23 \\
+{+\ 89} \\
+\hline
+112
+\end{array}
+\rightarrow
+\begin{array}{rl}
+23\color{yellow}7 \\
+{+\ 89 \color{yellow}5} \\
+\hline
+113\color{yellow}2
+\end{array}
+$$
 
 - Arithmetic operations are performed digit by digit
 
-  > Addition with carry, subtraction with borrow, multiplication, long division ...
-  >
-  > $$
-  > \begin{array}{rl}
-  >
-  >     23 \\
-  > + \ 89 \\
-  >   \hline
-  >    112
-  >
-  > \end{array}
-  >
-  > \ \ \ \ \rarr \ \ \ \ \ \
-  >
-  > \begin{array}{rl}
-  >
-  >     23\color{yellow}7 \\
-  > + \ 89\color{yellow}5 \\
-  >   \hline
-  >    113\color{yellow}2
-  >
-  > \end{array}
-  > $$
-  >
-  > This did not require 10 times the work to go from adding two digit numbers to adding three digit numbers. It only took us one more column in terms of moving carries.
-  >
-  > Similarly, addition, subtraction, multiplication, square roots, anything we do will typically work based on the length of the number as represented in that format e.g. decimal, binary, etc.
-  >
-  > Hence, we are really interested in the number of of digits
+  - Addition with carry, subtraction with borrow, multiplication, long division ...
+
+  - This did not require 10 times the work to go from adding two digit numbers to adding three digit numbers. It only took us one more column in terms of moving carries.
+  - Similarly, addition, subtraction, multiplication, square roots, anything we do will typically work based on the length of the number as represented in that format e.g. decimal, binary, etc.
+  - Hence, we are really interested in the number of of digits
 
 - Number of digits is a natural measure of input size.
-  - This is same as <code>$log _b n$</code> where we write $n$ in base $b$.
+  - This is same as $log _b n$ where we write $n$ in base $b$.
 
 ---
 
@@ -373,3 +364,4 @@ How should we measure the complexity of an Algorithm that computes whether $n$ i
 - We focus on worst case inputs
   - pessimistic, but easier to calculate than average cases
   - upper bound on worst case gives us an overall guarantee on performance
+    $$
