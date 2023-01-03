@@ -364,4 +364,3 @@ $$
 - We focus on worst case inputs
   - pessimistic, but easier to calculate than average cases
   - upper bound on worst case gives us an overall guarantee on performance
-    $$
