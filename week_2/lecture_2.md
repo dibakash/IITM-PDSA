@@ -23,6 +23,12 @@ In order to compare one function against another function we have a notion calle
 - Mathematically it can be represented as,
   > $f(x)\le c.g(x), \space \forall  \space x \ge x_o$
 
-![fx_bigO_of_gx](image/lecture_2/fx_bigO_of_gx.png)
+<figure>
+  <img src = "image/lecture_2/fx_bigO_of_gx.png" alt="comparing two graphs"></img>
+  <figcaption>fig 1: upper bound of a graphs</figcaption>
+</figure>
 
-![bigo](image/lecture_2/bigo.png)
+<figure>
+  <img src = "image/lecture_2/bigo.png" alt="comparing two graphs"></img>
+  <figcaption>fig 2: BigO comparison</figcaption>
+</figure>
