@@ -239,14 +239,20 @@ y=t
 
 ---
 
+---
+
+#### Natural Parameters
+
+---
+
 Typically a Natural Parameter constitutes the input size.
 
 E.g.
 
-- size of a list/ array that we want to search or sort
-- number of objects that we want to rearrange
-- number of **Vertices** and number of **Edges** in a **Graph**
-  - these are two separate natural parameters
+- Size of a list/ array that we want to search or sort
+- Number of objects that we want to rearrange
+- Number of **Vertices** and number of **Edges** in a **Graph**
+  - These are two separate natural parameters
   - When we are looking at graphs the input size consists of number of vertices and separately of number of edges
     - E.g. there may be graphs with many vertices but very few edges
 
@@ -261,3 +267,109 @@ flowchart LR;
     2 -- Edge2--- 3;
     4 -- Edge4--- 5;
 ```
+
+---
+
+#### Numerical Problems -
+
+---
+
+What constitutes the input size affecting the running time as per different numerical problems?
+
+---
+
+E.g.: Is $n$ a prime? i.e. given $n$, is $n$ a prime?
+
+How should we measure the complexity of an Algorithm that computes whether $n$ is a prime or not?
+
+- Here magnitude of $n$ (proportional to the value of $n$) is not the correct measure.
+
+  > If we consider the magnitude of $n$ as the measure of running time then :-
+  >
+  > The algorithm should take 10 times longer to determine if 4367 is a prime number than it should take to determine if 387 is a prime number. However, we know that this is not usually the case because arithmetic operations are performed one digit at a time.
+  >
+  > Meaning, the measure is not done according to the magnitude but according to the number of digits
+
+- Arithmetic operations are performed digit by digit
+
+  > Addition with carry, subtraction with borrow, multiplication, long division ...
+  >
+  > $$
+  > \begin{array}{rl}
+  >
+  >     23 \\
+  > + \ 89 \\
+  >   \hline
+  >    112
+  >
+  > \end{array}
+  >
+  > \ \ \ \ \rarr \ \ \ \ \ \
+  >
+  > \begin{array}{rl}
+  >
+  >     23\color{yellow}7 \\
+  > + \ 89\color{yellow}5 \\
+  >   \hline
+  >    113\color{yellow}2
+  >
+  > \end{array}
+  > $$
+  >
+  > This did not require 10 times the work to go from adding two digit numbers to adding three digit numbers. It only took us one more column in terms of moving carries.
+  >
+  > Similarly, addition, subtraction, multiplication, square roots, anything we do will typically work based on the length of the number as represented in that format e.g. decimal, binary, etc.
+  >
+  > Hence, we are really interested in the number of of digits
+
+- Number of digits is a natural measure of input size.
+  - This is same as <code>$log _b n$</code> where we write $n$ in base $b$.
+
+---
+
+### What inputs should we consider?
+
+---
+
+- Performance varies across inputs
+
+  - By luck, the value we are searching for may be the first element of an array (or the mid point in case of binary search)
+
+- Ideally we want the average behavior
+
+  - this is however **Difficult to compute**
+  - **Average over what? Are all inputs equally likely?**
+    - for this we have to enumerate all the possible inputs which is in reality is difficult task (e.g. inputs that generate different graphs by a graph algorithm)
+    - Secondly, whether all the inputs are equally likely or some combination of inputs are more likely?
+  - So, we need a **probability distribution over inputs** as well.
+  - This is a difficult task, and almost not possible in practice. That's why in most cases we cannot talk about average case.
+
+- Instead, we consider **Worst Case** input
+
+  - Input that forces algorithm to take longest possible time.
+  - e.g. search for a value that is not present in an unsorted list
+
+    - this forces the algorithm to look into every element of input (i.e. **must scan all elements**)
+
+  - It's a **Pessimistic** approach. Worst case may be rare
+  - But good thing about worst case analysis is that we get a reasonable upper bound. Upper bound for worst case **guarantees** good performance.
+    - E.g even if in the example of Aadhar card, all the Aadhar card numbers were wrong it would have still taken the algorithm to return a result $n log n$.
+  - When we have a good upper bound, worst case analysis gives us a good understanding of the overall upper bound run time of the algorithm. However, when we're not able to prove a good upper bound worst case may not be a good estimate of how good or bad an algorithm is.
+    - There are many algorithms, which have not so good worst cases but work well in practice because the kind of worst cases they perform bad, do not occur in practice so often.
+
+---
+
+### Summary
+
+---
+
+- Two important parameters when measuring Algorithm performance
+  - Running time, memory requirement ( space )
+  - We mainly focus on time
+- Running time $t(n)$ is a function of input size
+  - interested in order of magnitude, (and number of digits for numerical problems $log _bn$)
+  - Asymptotic complexity, as $n$ becomes large
+- From running time we can estimate feasible input sizes
+- We focus on worst case inputs
+  - pessimistic, but easier to calculate than average cases
+  - upper bound on worst case gives us an overall guarantee on performance
