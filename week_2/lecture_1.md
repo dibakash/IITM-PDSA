@@ -314,7 +314,7 @@ $$
   - Hence, we are really interested in the number of of digits
 
 - Number of digits is a natural measure of input size.
-  - This is same as $log _b n$ where we write $n$ in base $b$.
+  - This is same as $\log _b n$ where we write $n$ in base $b$.
 
 ---
 
@@ -344,7 +344,7 @@ $$
 
   - It's a **Pessimistic** approach. Worst case may be rare
   - But good thing about worst case analysis is that we get a reasonable upper bound. Upper bound for worst case **guarantees** good performance.
-    - E.g even if in the example of Aadhar card, all the Aadhar card numbers were wrong it would have still taken the algorithm to return a result $n log n$.
+    - E.g even if in the example of Aadhar card, all the Aadhar card numbers were wrong it would have still taken the algorithm to return a result $n \log n$.
   - When we have a good upper bound, worst case analysis gives us a good understanding of the overall upper bound run time of the algorithm. However, when we're not able to prove a good upper bound worst case may not be a good estimate of how good or bad an algorithm is.
     - There are many algorithms, which have not so good worst cases but work well in practice because the kind of worst cases they perform bad, do not occur in practice so often.
 
@@ -358,7 +358,7 @@ $$
   - Running time, memory requirement ( space )
   - We mainly focus on time
 - Running time $t(n)$ is a function of input size
-  - interested in order of magnitude, (and number of digits for numerical problems $log _bn$)
+  - interested in order of magnitude, (and number of digits for numerical problems $\log _bn$)
   - Asymptotic complexity, as $n$ becomes large
 - From running time we can estimate feasible input sizes
 - We focus on worst case inputs
