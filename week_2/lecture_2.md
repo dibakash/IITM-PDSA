@@ -43,4 +43,3 @@ For small value of $n$, $n\log n$ looks like it is closer to $n^2$ like the abov
   <img src = "image/lecture_2/bigo_large_n.png" alt="bigo comparison with large n"></img>
   <figcaption>fig 3: BigO comparison with large n</figcaption>
 </figure>
-'
