@@ -176,4 +176,43 @@ It is not something that is determined for an individual algorithm, but rather i
 
 > Note:
 >
-> The upper bound of an algorithm, also known as its worst-case time complexity, is a measure of the maximum amount of time that the algorithm will take to solve a problem of a given size. Like the lower bound, it is a property of the problem rather than the specific algorithm being used. However, it is possible for different algorithms to have different upper bounds for the same problem, depending on how efficiently they are able to solve it. For example, one algorithm might have an upper bound of O(n^2) for a particular problem, while another algorithm might have an upper bound of O(n log n) for the same problem. The upper bound is important because it helps to determine the feasibility of an algorithm for solving a given problem, as well as its potential performance characteristics.
+> The upper bound of an algorithm, also known as its worst-case time complexity, is a measure of the maximum amount of time that the algorithm will take to solve a problem of a given size. Like the lower bound, it is a property of the problem rather than the specific algorithm being used. However, it is possible for different algorithms to have different upper bounds for the same problem, depending on how efficiently they are able to solve it. For example, one algorithm might have an upper bound of $O(n^2)$ for a particular problem, while another algorithm might have an upper bound of $O(n \log n)$ for the same problem. The upper bound is important because it helps to determine the feasibility of an algorithm for solving a given problem, as well as its potential performance characteristics.
+
+---
+
+## Tight Bounds
+
+---
+
+$f(x)$ is said to be $\Theta(g(x))$ if it is both $O(g(x))$ and $\Omega(g(x))$
+
+> find constants $c_1, c_2, x_o$ such that $c_1 \cdot g(x) \le f(x) \le c_2 \cdot g(x), \ \ \ \space \forall \ x >x_o$
+
+Example: Show that $n(n-1) \over 2$ is $\Theta(n^2)$
+
+- Upper bound:
+
+  > ${n(n-1)\over 2} ={n^2 \over 2}-{n \over 2} \le {1\over 2}n^2, \ \ \forall n \ge 0$
+
+- Lower bound:
+  > ${n(n-1)\over 2} ={n^2 \over 2}-{n \over 2} \ge {n^2\over 2}-({n \over 2} \times {n \over 2}) \ge {n^2 \over 4}, \ \ \forall n \ge 2$
+- Choose $n_o = 2, c_1 = {1 \over 4}, c_2= {1 \over 2}$
+
+- So, ${1 \over 4} n^2 \le {n(n-1)\over 2} \le {1 \over 2} n^2$
+
+Note:
+
+> Tight bounds refer to bounds on an algorithm's performance that are as close as possible to the actual performance of the algorithm. For example, if an algorithm has a time complexity of $O(n^2)$, and its performance closely matches this bound for a wide range of input sizes, we say that the bound is tight. On the other hand, if an algorithm has a time complexity of $O(n^2)$ but its actual performance is much worse than this bound for a given input size, we say that the bound is not tight.
+>
+> Tight bounds are important because they give us a better understanding of an algorithm's actual performance characteristics. If the bounds on an algorithm's performance are not tight, it can be difficult to predict how well the algorithm will perform on different inputs, making it harder to choose the best algorithm for a given problem. On the other hand, if the bounds are tight, we can have more confidence in our predictions about the algorithm's performance, and we can more accurately compare the relative performance of different algorithms for a given problem.
+
+## Summary
+
+- $f(n)$ is $O(g(n))$ means $g(n)$ is an upper bound for $f(n)$
+
+  - Useful to describe asymptotic worst case running time
+
+- $f(n)$ is $\Omega (g(n))$ means $g(n)$ is a lower bound for $f(n)$
+  - Typically used for a problem as a whole, rather than an individual algorithm
+- $f(n)$ is $\Theta (g(n))$ : matching upper and lower bounds
+  - We have found an optimal algorithm for a problem.
