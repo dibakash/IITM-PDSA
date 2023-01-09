@@ -147,3 +147,33 @@ In other words, if a problem has two phases e.g. the Aadhar Card example,
 - The algorithm as a whole takes time: $max(O(g_A(n)), O(g_B(n)))$
 
 - i.e. the least efficient phase will dominate the running time and is the bottleneck and $\text {upper bound}$ for the whole algorithm.
+
+---
+
+## Lower Bound (Omega of a function)
+
+---
+
+$f(x)$ is said to be $\Omega (g(x))$, if we find constants $c$ and $x_o$ such that $c \cdot g(x)$ is a lower bound for $f(x)$ for $x$ beyond $x_o$
+
+> $f(x)\ge c.g(x), \space \forall  \space x \ge x_o$
+
+e.g. $n^3$ is $\Omega (n^2)$ as $n^3 \ge n^2$ for all $n$. So, $n_0 = 1, c = 1$
+
+### Typically we establish lower bounds for a problem rather than an individual algorithm
+
+Lower bound of an algorithm is the minimum number of steps that an algorithm must take in order to solve a problem of a certain size.
+
+It is not something that is determined for an individual algorithm, but rather it is a property of the problem itself. In other words, it is the minimum amount of work that must be done in order to solve the problem, regardless of the specific algorithm being used. In other words, it represents the inherent difficulty of the problem, and no matter which algorithm is used, it will always take at least this many steps to solve the problem.
+
+- For example, suppose we have a problem that requires us to compare every element in an array with every other element in order to find a certain pattern. In this case, the lower bound of the problem would be $n^2$, because no matter which algorithm we use, we will always have to do at least $n^2$ comparisons in order to solve the problem. Even if we use a more efficient algorithm that is able to solve the problem in fewer than $n^2$ steps, the lower bound will still be $\Omega (n^2)$ because that is the minimum number of steps required to solve the problem.
+
+- Similarly, searching for an element in an unsorted array that is not present in the array will have a lower bound of size of the array as regardless of algorithm used we have to look into every element for the array
+
+- If we sort a list by comparing elements and swapping them (i.e. comparing and rearranging), we require $\Omega (n\log n)$ comparisons
+
+- This is independent of the algorithm we use for sorting
+
+> Note:
+>
+> The upper bound of an algorithm, also known as its worst-case time complexity, is a measure of the maximum amount of time that the algorithm will take to solve a problem of a given size. Like the lower bound, it is a property of the problem rather than the specific algorithm being used. However, it is possible for different algorithms to have different upper bounds for the same problem, depending on how efficiently they are able to solve it. For example, one algorithm might have an upper bound of O(n^2) for a particular problem, while another algorithm might have an upper bound of O(n log n) for the same problem. The upper bound is important because it helps to determine the feasibility of an algorithm for solving a given problem, as well as its potential performance characteristics.
