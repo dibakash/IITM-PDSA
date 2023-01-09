@@ -25,7 +25,7 @@ In order to compare one function against another function we have a notion calle
 
 <figure>
   <img src = "image/lecture_2/fx_bigO_of_gx.png" alt="comparing two graphs"></img>
-  <figcaption>fig 1: upper bound of a graphs</figcaption>
+  <figcaption>fig 1. upper bound of a graphs</figcaption>
 </figure>
 
 <br>
@@ -34,12 +34,30 @@ Here are some graphs that we discussed before. both $\log n$ and $\sqrt n$ doesn
 
 <figure>
   <img src = "image/lecture_2/bigo.png" alt="comparing two graphs"></img>
-  <figcaption>fig 2: BigO comparison</figcaption>
+  <figcaption>fig 2. BigO comparison</figcaption>
 </figure>
 
-For small value of $n$, $n\log n$ looks like it is closer to $n^2$ like the above image however we can observe that it is actually much closer to $O(n)$ than it is to $n^2$ as n approaches some large value as shown in the fig 3 below.
+For small value of $n$, $n\log n$ looks like it is closer to $n^2$ like the above image however we can observe that it is actually much closer to $O(n)$ than it is to $O(n^2)$ as n approaches some large value as shown in the fig. 3 below.
 
 <figure>
   <img src = "image/lecture_2/bigo_large_n.png" alt="bigo comparison with large n"></img>
-  <figcaption>fig 3: BigO comparison with large n</figcaption>
+  <figcaption>fig. 3: BigO comparison with large n</figcaption>
 </figure>
+
+As discussed before (fig. 1), to show that something is BigO of a function say $f(x)$ formally, we have to find out $c$ and $x_o$ and demonstrate $f(x)\le c.g(x), \space \forall  \space x \ge x_o$
+
+---
+
+### Examples
+
+---
+
+- $100n + 5$ is $O(n^2)$ i.e. $f(n) = 100n + 5$ and $g(n) = n^2$
+
+  > $100n + 5 \le 100n + n,\ \ \ \ \forall \space n \ge 5$
+  >
+  > $\Rightarrow 100n + 5 \le 101n,\ \ \ \ \forall \space n \ge 5$
+  >
+  > now,
+  >
+  > $101n \le 101n^2$
