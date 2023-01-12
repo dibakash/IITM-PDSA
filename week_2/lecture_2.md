@@ -4,7 +4,7 @@
 
 How do we compare functions with respect to orders of magnitude
 
-In order to compare one function against another function we have a notion called upper bound.
+In order to compare one function against another function we have a notion called the upper bound.
 
 ---
 
@@ -25,7 +25,7 @@ In order to compare one function against another function we have a notion calle
 
 <figure>
   <img src = "image/lecture_2/fx_bigO_of_gx.png" alt="comparing two graphs"></img>
-  <figcaption>fig 1. upper bound of a graphs</figcaption>
+  <figcaption>fig 1. upper bound of a graph</figcaption>
 </figure>
 
 <br>
@@ -37,10 +37,10 @@ Here are some graphs that we discussed before. both $\log n$ and $\sqrt n$ doesn
   <figcaption>fig 2. BigO comparison</figcaption>
 </figure>
 
-For small value of $n$, $n\log n$ looks like it is closer to $n^2$ like the above image however we can observe that it is actually much closer to $O(n)$ than it is to $O(n^2)$ as n approaches some large value as shown in the fig. 3 below.
+For a small value of $n$, $n\log n$ looks like it is closer to $n^2$ like the above image however we can observe that it is much closer to $O(n)$ than it is to $O(n^2)$ as n approaches some large value as shown in the fig. 3 below.
 
 <figure>
-  <img src = "image/lecture_2/bigo_large_n.png" alt="bigo comparison with large n"></img>
+  <img src = "image/lecture_2/bigo_large_n.png" alt="BigO comparison with large n"></img>
   <figcaption>fig. 3: BigO comparison with large n</figcaption>
 </figure>
 
@@ -162,13 +162,13 @@ e.g. $n^3$ is $\Omega (n^2)$ as $n^3 \ge n^2$ for all $n$. So, $n_0 = 1, c = 1$
 
 ### Typically we establish lower bounds for a problem rather than an individual algorithm
 
-Lower bound of an algorithm is the minimum number of steps that an algorithm must take in order to solve a problem of a certain size.
+The lower bound of an algorithm is the minimum number of steps that an algorithm must take to solve a problem of a certain size.
 
-It is not something that is determined for an individual algorithm, but rather it is a property of the problem itself. In other words, it is the minimum amount of work that must be done in order to solve the problem, regardless of the specific algorithm being used. In other words, it represents the inherent difficulty of the problem, and no matter which algorithm is used, it will always take at least this many steps to solve the problem.
+It is not something that is determined for an individual algorithm, but rather it is a property of the problem itself. In other words, it is the minimum amount of work that must be done to solve the problem, regardless of the specific algorithm being used. In other words, it represents the inherent difficulty of the problem, and no matter which algorithm is used, it will always take at least this many steps to solve the problem.
 
-- For example, suppose we have a problem that requires us to compare every element in an array with every other element in order to find a certain pattern. In this case, the lower bound of the problem would be $n^2$, because no matter which algorithm we use, we will always have to do at least $n^2$ comparisons in order to solve the problem. Even if we use a more efficient algorithm that is able to solve the problem in fewer than $n^2$ steps, the lower bound will still be $\Omega (n^2)$ because that is the minimum number of steps required to solve the problem.
+- For example, suppose we have a problem that requires us to compare every element in an array with every other element in order to find a certain pattern. In this case, the lower bound of the problem would be $n^2$, because no matter which algorithm we use, we will always have to do at least $n^2$ comparisons to solve the problem. Even if we use a more efficient algorithm that can solve the problem in fewer than $n^2$ steps, the lower bound will still be $\Omega (n^2)$ because that is the minimum number of steps required to solve the problem.
 
-- Similarly, searching for an element in an unsorted array that is not present in the array will have a lower bound of size of the array as regardless of algorithm used we have to look into every element for the array
+- Similarly, searching for an element in an unsorted array that is not present in the array will have a lower bound of the size of the array as regardless of the algorithm used we have to look into every element for the array
 
 - If we sort a list by comparing elements and swapping them (i.e. comparing and rearranging), we require $\Omega (n\log n)$ comparisons
 
@@ -210,7 +210,7 @@ Note:
 
 - $f(n)$ is $O(g(n))$ means $g(n)$ is an upper bound for $f(n)$
 
-  - Useful to describe asymptotic worst case running time
+  - Useful to describe asymptotic worst-case running time
 
 - $f(n)$ is $\Omega (g(n))$ means $g(n)$ is a lower bound for $f(n)$
   - Typically used for a problem as a whole, rather than an individual algorithm

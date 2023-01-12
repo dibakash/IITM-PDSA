@@ -11,18 +11,18 @@
 - Running time - how much time the Algorithm takes
 - Space - memory requirements
 
-### Time depends of Processing Power -
+### Time depends on Processing Power -
 
-- Impossible to change for a given hardware
+- Impossible to change the running time for a given hardware
 - Based on the present computing power of the CPUs ( last 10 / 15 years [this is 2022] ), Python can do around $10^7$ operations/ second.
 - Enhancing hardware has only a limited impact at a practical level
-- Meaning, even if we upgrade to a machine which is 10 times faster would not have any significant impact on something which is inherently long to compute.
+- Meaning, even if we upgrade to a machine that is 10 times faster would not have any significant impact on something which is inherently long to compute.
 
 ### Storage is limited by Available Memory
 
 - Easier to configure, augment
 
-Because of this reason, when we talk about performance the focus is more on time rather than space aspect of performance
+Because of this reason, when we talk about performance the focus is more on the time rather than space aspect of performance
 
 <br>
 
@@ -31,7 +31,7 @@ Because of this reason, when we talk about performance the focus is more on time
 ---
 
 - Running time depends on input size. For example, a larger array takes more time to sort than a smaller array. We can think of time efficiency as a function of input size $n$ as running time $t(n)$
-- Of course, different inputs of same input size $n$ may take different amounts of time. For example, two arrays of same size may take different amount of time to sort if one of them is already sorted and the other one is not.
+- Of course, different inputs of the same input size $n$ may take different amounts of time. For example, two arrays of the same size may take different amounts of time to sort if one of them is already sorted and the other one is not.
 
 ---
 
@@ -45,8 +45,8 @@ Because of this reason, when we talk about performance the focus is more on time
 
 Let's have a look at the following problem (sim card mapped to Aadhar card)
 
-- Suppose there is need to verify Aadhar number associated with a mobile number so that a person can be verified.
-- Assuming everyone have an Aadhar card in India (population of 100 Cr), there are around $10^9$ Aadhar cards. Similarly, assuming person having phones have multiple sim cards, there are around $10^9$ sim cards as well
+- Suppose there is a need to verify the Aadhar number associated with a mobile number so that a person can be verified.
+- Assuming everyone has an Aadhar card in India (population of 100 Cr), there are around $10^9$ Aadhar cards. Similarly, assuming a person having phones have multiple sim cards, there are around $10^9$ sim cards as well
 - So, if we do a nested loop to check whether the Aadhar card provided is valid or not against the sim card provided we'll have to do $10^9 \times 10^9 = 10^{18}$
 - with python, it will take:
 
@@ -56,7 +56,7 @@ Let's have a look at the following problem (sim card mapped to Aadhar card)
   > <br> $\Rightarrow 2.78 \times 10^7 \div 24 \approx 1158333$ days
   > <br> $\approx 3200$ Years! ⌛🛸 🤣
 
-So, we'll need 3200 years to verify whether correct Aadhar details is mapped to the sim card or not!
+So, we'll need 3200 years to verify whether the correct Aadhar is mapped to the sim card or not!
 
 ### What can be done so that the problem is manageable?
 
@@ -71,7 +71,7 @@ A common strategy is to use the divide and conquer approach (logarithmic) by div
 
 $\therefore$ We'll require $10^9 \times 30$ computations with this approach which in terms of python will need $( 10^9 \times 30) / 10^7 = 3000 \space seconds = 50\space mins$. This is a huge improvement (obviously as compared to 3200 years) and is just a work of around 1 hour to carry out the needed verification amongst a population of 1 billion.
 
-This is basically tells us about importance of running time of an algorithm.
+This basically tells us about the importance of the running time of an algorithm.
 
 > - The halving of the operations in terms of mathematics can be thought of as $\log _2n = k \Rightarrow  2^k = n$. The $\log _2n$ is nothing but number of time we need to divide $n$ by $2$ to reach $1$ or number of times we need to multiply $2$ to reach $n$.<br>
 > - In terms of programming while representing time complexities, in general we write $\log _2n$ as $\log n$ (omitting the base 2).<br>
@@ -83,15 +83,15 @@ This is basically tells us about importance of running time of an algorithm.
 
 ---
 
-Let's imagine a hypothetical video game where there are several objects on the screen that can attack the each other based on the closest distance.
+Let's imagine a hypothetical video game where several objects on the screen can attack each other based on the closest distance.
 
-So, the task is to find the closest pairs of objects. One can think of a naive algorithm (brute force approach) that has running time of $n^2$. More precisely, we need to compare $n$ objects to $(n-1)$ objects and divide it by 2 as we don't need distance from both directions. So, number of comparisons needed:
+So, the task is to find the closest pairs of objects. One can think of a naive algorithm (brute force approach) that has a running time of $n^2$. More precisely, we need to compare $n$ objects to $(n-1)$ objects and divide it by 2 as we don't need distance from both directions. So, the number of comparisons needed:
 
 $$\frac{n(n-1)}{2} = \frac{n^2 -n }{2}\sim n^2$$
 
 <div style="text-align:center;">(asymptotically equivalent to <code>n<sup>2</sup></code> )</div>
 
-Let's say there exist a clever algorithm that takes time $n\log n$
+Let's say there exists a clever algorithm that takes time $n\log n$
 
 What would be the impact of the naive algorithm and the clever algorithm on running time for this problem?
 
@@ -102,7 +102,7 @@ What would be the impact of the naive algorithm and the clever algorithm on runn
 > - In python this means $1000$ seconds or $16.7$ minutes.
 > - Even a ten time faster programming language it will take $1.67$ mins which is unacceptable response time and which is why an $n^2$ algorithm will be useless in this scenario.
 
-What happens with $n \log n$ algorithm?
+What happens with the $n \log n$ algorithm?
 
 > Some intuition building maths:
 >
@@ -126,7 +126,7 @@ This was another example of why designing an algorithm that goes from $n^2$ to $
 
 ## Getting into Technical Aspects - Orders of Magnitude
 
-### How do we actually evaluate and compare different algorithms formally? We need a way to compute these and compare these
+### How do we actually evaluate and compare different algorithms formally? We need a way to compute and compare these
 
 ---
 
@@ -151,7 +151,7 @@ We want to know as $n$ becomes larger, which of the algorithms perform better. T
 >   - After $n = 5000$, $f(n)$ overtakes $g(n)$
 >     - $6000^3 > 5000 \times 6000^2$
 
-We are interested in these $t(n)$ in different forms that occur as different growth functions-
+We are interested in this $ t (n)$ in different forms that occur as different growth functions-
 
 > Typical growth functions
 >
@@ -191,7 +191,7 @@ On the other hand, we can go with very large inputs up to the functions $t(n) = 
 
 So, there are two sides to this story:
 
-1. Estimating how fast the algorithm will work and from there we can determine what the algorithm can be used for - what sizes of problems that the algorithm can handle
+1. Estimating how fast the algorithm will work and from there we can determine what the algorithm can be used for - what sizes of problems the algorithm can handle
 2. Conversely, if we know the size of the problem, then we can determine whether we can get away with an inefficient algorithm or not.
 
 ---
@@ -200,7 +200,7 @@ So, there are two sides to this story:
 
 ---
 
-Analysis should be independent of underlying hardware
+Analysis should be independent of the underlying hardware
 
 - Don't use actual time
 - Measure time in terms of **Basic Operations**
@@ -215,13 +215,7 @@ Typical basic operations:
   - <code>x = 6</code>
 - the idea of basic operations is somewhat flexible as it also depends on the programming language we are working with. We don't have to be very precise while defining the basic operations
 
-- E.g in python:
-
-```
-(x,y) = (y,x)
-```
-
-- In real the above 1 line code takes 3 steps. i.e. 3 times the one line code
+- E.g in python: In reality, the above 1 line code takes 3 steps. i.e. 3 times the one-line code
 
 ```
 t=x
@@ -229,7 +223,7 @@ x=y
 y=t
 ```
 
-- If we ignore constants, focus on orders of magnitude, both are within a factor of 3
+- If we ignore constants and focus on orders of magnitude, both are within a factor of 3
 - Hence, we need not be very precise in defining operations.
 - In other words, if there are 7 steps in a code block and we just consider them as 1 as it is always going to be 7 steps and not proportional to the input size.
 
@@ -253,7 +247,7 @@ E.g.
 - Number of objects that we want to rearrange
 - Number of **Vertices** and number of **Edges** in a **Graph**
   - These are two separate natural parameters
-  - When we are looking at graphs the input size consists of number of vertices and separately of number of edges
+  - When we are looking at graphs the input size consists of the "number of vertices" and separately of the "number of edges"
     - E.g. there may be graphs with many vertices but very few edges
 
 ```mermaid
@@ -284,7 +278,7 @@ How should we measure the complexity of an Algorithm that computes whether $n$ i
 
 - Here magnitude of $n$ (proportional to the value of $n$) is not the correct measure.
 
-  - If we consider the magnitude of $n$ as the measure of running time then :-
+  - If we consider the magnitude of $n$ as the measure of running time then:-
 
   - The algorithm should take 10 times longer to determine if 4367 is a prime number than it should take to determine if 387 is a prime number. However, we know that this is not usually the case because arithmetic operations are performed one digit at a time.
   - Meaning, the measure is not done according to the magnitude but according to the number of digits
@@ -309,11 +303,11 @@ $$
 
   - Addition with carry, subtraction with borrow, multiplication, long division ...
 
-  - This did not require 10 times the work to go from adding two digit numbers to adding three digit numbers. It only took us one more column in terms of moving carries.
-  - Similarly, addition, subtraction, multiplication, square roots, anything we do will typically work based on the length of the number as represented in that format e.g. decimal, binary, etc.
-  - Hence, we are really interested in the number of of digits
+  - This did not require 10 times the work to go from adding two-digit numbers to adding three digit numbers. It only took us one more column in terms of moving carries.
+  - Similarly, addition, subtraction, multiplication, square roots, and anything we do will typically work based on the length of the number as represented in that format e.g. decimal, binary, etc.
+  - Hence, we are interested in the number of digits
 
-- Number of digits is a natural measure of input size.
+- The number of digits is a natural measure of input size.
   - This is same as $\log _b n$ where we write $n$ in base $b$.
 
 ---
@@ -324,29 +318,29 @@ $$
 
 - Performance varies across inputs
 
-  - By luck, the value we are searching for may be the first element of an array (or the mid point in case of binary search)
+  - By luck, the value we are searching for may be the first element of an array (or the mid-point in case of binary search)
 
-- Ideally we want the average behavior
+- Ideally, we want the average behavior
 
   - this is however **Difficult to compute**
   - **Average over what? Are all inputs equally likely?**
-    - for this we have to enumerate all the possible inputs which is in reality is difficult task (e.g. inputs that generate different graphs by a graph algorithm)
-    - Secondly, whether all the inputs are equally likely or some combination of inputs are more likely?
+    - for this, we have to enumerate all the possible inputs which are in reality a difficult task (e.g. inputs that generate different graphs by a graph algorithm)
+    - Secondly, whether all the inputs are equally likely or some combination of inputs is more likely?
   - So, we need a **probability distribution over inputs** as well.
-  - This is a difficult task, and almost not possible in practice. That's why in most cases we cannot talk about average case.
+  - This is a difficult task, and almost not possible in practice. That's why in most cases we cannot talk about the average case.
 
 - Instead, we consider **Worst Case** input
 
-  - Input that forces algorithm to take longest possible time.
+  - Input that forces the algorithm to take the longest possible time.
   - e.g. search for a value that is not present in an unsorted list
 
     - this forces the algorithm to look into every element of input (i.e. **must scan all elements**)
 
-  - It's a **Pessimistic** approach. Worst case may be rare
-  - But good thing about worst case analysis is that we get a reasonable upper bound. Upper bound for worst case **guarantees** good performance.
-    - E.g even if in the example of Aadhar card, all the Aadhar card numbers were wrong it would have still taken the algorithm to return a result $n \log n$.
-  - When we have a good upper bound, worst case analysis gives us a good understanding of the overall upper bound run time of the algorithm. However, when we're not able to prove a good upper bound worst case may not be a good estimate of how good or bad an algorithm is.
-    - There are many algorithms, which have not so good worst cases but work well in practice because the kind of worst cases they perform bad, do not occur in practice so often.
+  - It's a **Pessimistic** approach. Worst-case may be rare
+  - But the good thing about worst-case analysis is that we get a reasonable upper bound. Upper bound for worst-case **guarantees** good performance.
+    - E.g even if in the example of the Aadhar card, all the Aadhar card numbers were wrong it would have still taken the algorithm to return a result $n \log n$.
+  - When we have a good upper bound, worst-case analysis gives us a good understanding of the overall upper bound run time of the algorithm. However, when we're not able to prove a good upper bound worst case may not be a good estimate of how good or bad an algorithm is.
+    - There are many algorithms, which have not-so-good worst cases but work well in practice because the kind of worst cases they perform badly, do not occur in practice so often.
 
 ---
 
@@ -357,10 +351,8 @@ $$
 - Two important parameters when measuring Algorithm performance
   - Running time, memory requirement ( space )
   - We mainly focus on time
-- Running time $t(n)$ is a function of input size
-  - interested in order of magnitude, (and number of digits for numerical problems $\log _bn$)
-  - Asymptotic complexity, as $n$ becomes large
-- From running time we can estimate feasible input sizes
-- We focus on worst case inputs
+- Running time $t(n)$ is a function of input size interested in the order of magnitude, (and number of digits for numerical problems $\log _bn$)
+  - Asymptotic complexity, as $n$, becomes large. From the running time, we can estimate feasible input sizes
+- We focus on worst-case inputs
   - pessimistic, but easier to calculate than average cases
-  - upper bound on worst case gives us an overall guarantee on performance
+  - upper bound on the worst case gives us an overall guarantee of performance
