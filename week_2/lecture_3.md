@@ -69,15 +69,8 @@ Example 3: Matrix Multiplication
 
 - Matrix is represented as a list of lists
 
-  - $$
-    \begin{bmatrix}
-    1&2&3\\
-    4&5&6
-    \end{bmatrix}
-    $$
+  - $$\left[ 1 \ 2 \ 3 \atop 4 \ 5 \ 6\right]$$
   - $$[[1,2,3],[4,5,6]]$$
-
-- Input matrices have size $m\times n, n\times p$
 
 - Output matrices have size $m \times p$
 - Three nested loops
@@ -134,3 +127,6 @@ Description:
 > For example, if we have an algorithm that has a time complexity of $O(\log _{10}n)$, we can use the logarithm change of base formula to convert it to $O(\log _{2}n)$ by dividing $\log _{10}n$ by $\log _{10}2$ and we'll get the same order of magnitude, $O(\log _{2}n)$, and it's more common to use $\log _2 n$ in the analysis of algorithm complexity.
 >
 > In other words, the base of the logarithm does not change the order of magnitude of the logarithm, so it's more convenient to use a base that has more common usage $\log _2 n$
+
+$$
+$$
