@@ -11,7 +11,7 @@ Typically there will be two types of code that we look at.
 
 ---
 
-Example 1: Find the maximum element in a list:
+### Example 1: Find the maximum element in a list:
 
 - The input size is the length of the list
 - Single loop scans all elements
@@ -36,9 +36,9 @@ def maxElement(L):
     return maxval
 ```
 
-<br>
+  <br>
 
-Example 2: Check whether a list contains duplicates:
+### Example 2: Check whether a list contains duplicates
 
 - The input size is the length of the list
 - Nested loops scan all the pairs of elements
@@ -63,22 +63,53 @@ def noDuplicates(L):
 
 ```
 
-<br>
+  <br>
 
-Example 3: Matrix Multiplication
+### Example 3: Matrix Multiplication
 
 - Matrix is represented as a list of lists
 
-  - $$\left[ 1 \ 2 \ 3 \atop 4 \ 5 \ 6\right]$$
-  - $$[[1,2,3],[4,5,6]]$$
+  $$\left[ 1 \ 2 \ 3 \atop 4 \ 5 \ 6\right]$$
+
+  $$[[1,2,3],[4,5,6]]$$
 
 - Output matrices have size $m \times p$
 - Three nested loops
 - Overall time is $O(mnp)$, and $O(n^3)$ if both matrices are $n \times n$
 
-<br>
+```
+from pprint import pprint
 
-Example 4: Number of bits in the binary representation of $n$
+
+class incompatibleMatrices(Exception):
+    def __str__(self):
+        return "Matrices are not compatible. Check inputs"
+    pass
+
+def matrixMultiply(A, B):
+    try:
+        if len(A[0]) != len(B):
+            raise incompatibleMatrices
+
+        m, n, p = len(A), len(B), len(B[0])
+
+        C = [[0] * p for _ in range(m)]
+
+        for i in range(m):
+            for j in range(p):
+                for k in range(n):
+                    C[i][j] += A[i][k] * B[k][j]
+
+        return C
+
+    except incompatibleMatrices:
+        print("matrices are not compatible, check input")
+
+```
+
+ <br>
+
+### Example 4: Number of bits in the binary representation of $n$
 
 - $\log n$ steps for $n$ to reach 1
 - For number theoretic problems, the input size is the number of digits.
@@ -127,6 +158,3 @@ Description:
 > For example, if we have an algorithm that has a time complexity of $O(\log _{10}n)$, we can use the logarithm change of base formula to convert it to $O(\log _{2}n)$ by dividing $\log _{10}n$ by $\log _{10}2$ and we'll get the same order of magnitude, $O(\log _{2}n)$, and it's more common to use $\log _2 n$ in the analysis of algorithm complexity.
 >
 > In other words, the base of the logarithm does not change the order of magnitude of the logarithm, so it's more convenient to use a base that has more common usage $\log _2 n$
-
-$$
-$$
