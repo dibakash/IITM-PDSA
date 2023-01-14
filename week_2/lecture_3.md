@@ -158,3 +158,116 @@ Description:
 > For example, if we have an algorithm that has a time complexity of $O(\log _{10}n)$, we can use the logarithm change of base formula to convert it to $O(\log _{2}n)$ by dividing $\log _{10}n$ by $\log _{10}2$ and we'll get the same order of magnitude, $O(\log _{2}n)$, and it's more common to use $\log _2 n$ in the analysis of algorithm complexity.
 >
 > In other words, the base of the logarithm does not change the order of magnitude of the logarithm, so it's more convenient to use a base that has more common usage $\log _2 n$
+
+## Recursive Program Example
+
+---
+
+### Example 5: Towers of Hanoi
+
+The Towers of Hanoi is a classic puzzle game that consists of three rods and a number of disks of different sizes that can slide onto any rod. The puzzle starts with the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape.
+
+The objective of the puzzle is to move the entire stack to another rod, obeying the following simple rules:
+
+- Only one disk can be moved at a time.
+  Each move consists of taking the upper disk from one of the rods and sliding it onto another rod, on top of the other disks that may already be present on that rod.
+
+- No disk may be placed on top of a smaller disk.
+
+<figure>
+  <img src = "image/lecture_3/towers_of_hanoi.png" alt="Towers of Hanoi"></img>
+  <figcaption>fig. l31: Towers of Hanoi</figcaption>
+</figure>
+
+- Three pegs - A, B, C
+- Move n disks from A to B, Use C as a transit peg
+- Never put a larger disk on a smaller one
+
+Recursive solution
+
+- Move $n - 1$ disks from A to C, use B as transit peg
+- Move large disk from A to B
+- Move $n - 1$ discs from C to B, use A as transit peg
+
+When we have a recursive solution like this, the the best way to express the complexity is to think of it as a recursive formulation or a recurrence.
+
+Recurrence
+
+- $M(n)$ - the number of moves to transfer n disks
+- $M(1) =1$
+
+  > If we have only one disk to move we can always move it, i.e. we can move the top disk from a pile of 3 disks.
+  >
+  > $\therefore M(1)=1$
+
+- $M(n) = M(n-1) + 1 + M(n-1) + 1 = 2M(n-1) + 1$
+
+  > 1. Move $n-1$ disks from A to C i.e $M(n-1)$
+  >
+  > 2. Move 1 disk from A to B
+  >
+  > 3. Move $n-1$ disks from C to B i.e $M(n-1)$
+  >
+  > 4. Total: $ 2M(n-1) + 1$
+
+  This basically gives a recursive dependence of $M(n)$ on $M(n-1)$
+
+The usual way to solve this is to expand or unwind the recurrence by substituting.
+
+- Unwind and solve
+
+  1. Start with
+
+     > $M(n) = 2M(n-1) + 1$
+
+  2. Expand in a recursive manner
+     > $M(n) = 2M(n-1) + 1$
+     >
+     > $ = 2(2M(n-2)+1) + 1$
+     >
+     > $ = 2^2 M(n-2)+ (2 + 1)$
+     >
+     > $ = 2^2 (2M(n-3)+1)+ (2 + 1)$
+     >
+     > $ = 2^3 M(n-3)+ (4+ 2 + 1)$
+     >
+     > $...$
+     >
+     > $ = 2^k M(n-k)+ (2^k - 1)$
+     >
+     > $...$
+     >
+     > $ = 2^{n-1} M(n-(n-1))+ (2^{n-1} - 1)$
+     >
+     > $ = 2^{n-1} M(1)+ (2^{n-1} - 1)$
+     >
+     > $ = 2^{n-1} + 2^{n-1} - 1$
+     >
+     > $ = 2^{n} - 1$
+
+The complexity of the Tower of Hanoi problem is measured by the number of moves required to solve the puzzle. This is calculated using the recursive formula: $T(n) = 2^n - 1$, where n is the number of disks. This means that for n disks, it takes 2^n - 1 moves to solve the puzzle.
+
+The time complexity of the Tower of Hanoi problem is $O(2^n)$, which is exponential. This means that as the number of disks increases, the number of moves required to solve the puzzle increases exponentially. This makes the problem computationally expensive and impractical for large numbers of disks.
+
+In conclusion, the Tower of Hanoi is a classic puzzle game with a simple rule set but a complex solution that becomes exponentially more difficult as the number of disks increases. Its time complexity is $O(2^n)$ which is exponential.
+
+## Summary
+
+- Iterative Programs
+
+  > Focus on loops
+  >
+  > If we are looking at iterative programs with loops then what we need to understand is that how many time the loops execute
+  >
+  > If there are no loops then the program just takes constant amount of steps. But any interesting program usually consists of loops.
+  >
+  > "For loops" are easy to calculate but for "While loops" we have to be a bit careful to calculate how many times it executes for the while to become 1.
+
+- Recursive Programs
+
+  > Write and solve recurrence
+
+- Need to be clear about accounting for "basic" operations
+  > Even though this is a flexible notion, we have to careful
+  >
+  > E.g. A hidden function call inside a loop whose cost may not be a basic step.

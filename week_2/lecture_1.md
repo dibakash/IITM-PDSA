@@ -303,12 +303,12 @@ $$
 
   - Addition with carry, subtraction with borrow, multiplication, long division ...
 
-  - This did not require 10 times the work to go from adding two-digit numbers to adding three digit numbers. It only took us one more column in terms of moving carries.
+  - This did not require 10 times the work to go from adding two-digit numbers to adding three-digit numbers. It only took us one more column in terms of moving carries.
   - Similarly, addition, subtraction, multiplication, square roots, and anything we do will typically work based on the length of the number as represented in that format e.g. decimal, binary, etc.
   - Hence, we are interested in the number of digits
 
 - The number of digits is a natural measure of input size.
-  - This is same as $\log _b n$ where we write $n$ in base $b$.
+  - This is the same as $\log _b n$ where we write $n$ in base $b$.
 
 ---
 
