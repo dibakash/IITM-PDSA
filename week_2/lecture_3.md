@@ -185,11 +185,11 @@ The objective of the puzzle is to move the entire stack to another rod, obeying 
 
 Recursive solution
 
-- Move $n - 1$ disks from A to C, use B as transit peg
+- Move $n - 1$ disks from A to C, and use B as the transit peg
 - Move large disk from A to B
-- Move $n - 1$ discs from C to B, use A as transit peg
+- Move $n - 1$ discs from C to B, and use A as the transit peg
 
-When we have a recursive solution like this, the the best way to express the complexity is to think of it as a recursive formulation or a recurrence.
+When we have a recursive solution like this, the best way to express the complexity is to think of it as a recursive formulation or a recurrence.
 
 Recurrence
 
