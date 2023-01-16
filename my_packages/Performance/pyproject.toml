@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "Performance"
+version = "0.1.0"
+description = "A simple timer module for measuring performance of a piece of code"
+authors = ["Dibakash Baruah <dibakash@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

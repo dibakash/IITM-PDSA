@@ -1,10 +1,5 @@
-# custom package loader start
-import sys
+from Performance import Performance
 
-sys.path.append("..")
-from packages.performance import Performance
-
-# custom package loader end
 
 a = Performance()
 

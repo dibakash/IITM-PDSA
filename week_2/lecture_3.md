@@ -208,7 +208,7 @@ Recurrence
   >
   > 3. Move $n-1$ disks from C to B i.e $M(n-1)$
   >
-  > 4. Total: $ 2M(n-1) + 1$
+  > 4. Total: $2M(n-1) + 1$
 
   This basically gives a recursive dependence of $M(n)$ on $M(n-1)$
 
@@ -223,27 +223,27 @@ The usual way to solve this is to expand or unwind the recurrence by substitutin
   2. Expand in a recursive manner
      > $M(n) = 2M(n-1) + 1$
      >
-     > $ = 2(2M(n-2)+1) + 1$
+     > $= 2(2M(n-2)+1) + 1$
      >
-     > $ = 2^2 M(n-2)+ (2 + 1)$
+     > $= 2^2 M(n-2)+ (2 + 1)$
      >
-     > $ = 2^2 (2M(n-3)+1)+ (2 + 1)$
+     > $= 2^2 (2M(n-3)+1)+ (2 + 1)$
      >
-     > $ = 2^3 M(n-3)+ (4+ 2 + 1)$
-     >
-     > $...$
-     >
-     > $ = 2^k M(n-k)+ (2^k - 1)$
+     > $= 2^3 M(n-3)+ (4+ 2 + 1)$
      >
      > $...$
      >
-     > $ = 2^{n-1} M(n-(n-1))+ (2^{n-1} - 1)$
+     > $= 2^k M(n-k) + (2^k - 1)$
      >
-     > $ = 2^{n-1} M(1)+ (2^{n-1} - 1)$
+     > $...$
      >
-     > $ = 2^{n-1} + 2^{n-1} - 1$
+     > $= 2^{n-1} M(n-(n-1))+ (2^{n-1} - 1)$
      >
-     > $ = 2^{n} - 1$
+     > $= 2^{n-1} M(1)+ (2^{n-1} - 1)$
+     >
+     > $= 2^{n-1} + 2^{n-1} - 1$
+     >
+     > $= 2^{n} - 1$
 
 The complexity of the Tower of Hanoi problem is measured by the number of moves required to solve the puzzle. This is calculated using the recursive formula: $T(n) = 2^n - 1$, where n is the number of disks. This means that for n disks, it takes 2^n - 1 moves to solve the puzzle.
 
