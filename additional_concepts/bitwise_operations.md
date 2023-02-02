@@ -128,7 +128,7 @@ It's worth noting that, bitwise operations are not only used in low-level progra
 
 2. Compactness:
 
-   Bitwise operations can be used to perform multiple operations at once. For example, the following C++ code uses bitwise operations to set and clear certain bits in a number, without affecting the other bits. To set a bit we use the OR operation, which sets a bit to 1 if either operand's bit is 1. To clear a bit we use the AND operation with NOT operator, which sets a bit to 0 if either operand's bit is 0.
+   Bitwise operations can be used to perform multiple operations at once. For example, the following C++ code uses bitwise operations to set and clear certain bits in a number, without affecting the other bits. To set a bit we use the OR operation, which sets a bit to 1 if either operand's bit is 1. To clear a bit we use the AND operation with the NOT operator, which sets a bit to 0 if either operand's bit is 0.
 
    ```
    unsigned int flags = 0;

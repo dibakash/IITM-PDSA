@@ -2,9 +2,9 @@
 
 <!-- Notes maintained by: Dibakash Baruah -->
 
-How do we compare functions with respect to orders of magnitude
+How do we compare functions concerning orders of magnitude?
 
-In order to compare one function against another function we have a notion called the upper bound.
+To compare one function against another function we have a notion called the upper bound.
 
 ---
 
@@ -104,7 +104,7 @@ As discussed before (fig. 1), to show that something is BigO of a function say $
   >
   > - Hence, $100n^2 + 20n+ 5$ is $O(n^2)$
 
-- So, what really matters is the highest term
+- So, what matters is the highest term
 
   - $20n + 5$ is dominated by $100n^2$
 
@@ -166,7 +166,7 @@ The lower bound of an algorithm is the minimum number of steps that an algorithm
 
 It is not something that is determined for an individual algorithm, but rather it is a property of the problem itself. In other words, it is the minimum amount of work that must be done to solve the problem, regardless of the specific algorithm being used. In other words, it represents the inherent difficulty of the problem, and no matter which algorithm is used, it will always take at least this many steps to solve the problem.
 
-- For example, suppose we have a problem that requires us to compare every element in an array with every other element in order to find a certain pattern. In this case, the lower bound of the problem would be $n^2$, because no matter which algorithm we use, we will always have to do at least $n^2$ comparisons to solve the problem. Even if we use a more efficient algorithm that can solve the problem in fewer than $n^2$ steps, the lower bound will still be $\Omega (n^2)$ because that is the minimum number of steps required to solve the problem.
+- For example, suppose we have a problem that requires us to compare every element in an array with every other element to find a certain pattern. In this case, the lower bound of the problem would be $n^2$, because no matter which algorithm we use, we will always have to do at least $n^2$ comparisons to solve the problem. Even if we use a more efficient algorithm that can solve the problem in fewer than $n^2$ steps, the lower bound will still be $\Omega (n^2)$ because that is the minimum number of steps required to solve the problem.
 
 - Similarly, searching for an element in an unsorted array that is not present in the array will have a lower bound of the size of the array as regardless of the algorithm used we have to look into every element for the array
 
@@ -176,7 +176,13 @@ It is not something that is determined for an individual algorithm, but rather i
 
 > Note:
 >
-> The upper bound of an algorithm, also known as its worst-case time complexity, is a measure of the maximum amount of time that the algorithm will take to solve a problem of a given size. Like the lower bound, it is a property of the problem rather than the specific algorithm being used. However, it is possible for different algorithms to have different upper bounds for the same problem, depending on how efficiently they are able to solve it. For example, one algorithm might have an upper bound of $O(n^2)$ for a particular problem, while another algorithm might have an upper bound of $O(n \log n)$ for the same problem. The upper bound is important because it helps to determine the feasibility of an algorithm for solving a given problem, as well as its potential performance characteristics.
+> In general, both $Big O$ and $Omega$ notation are used to describe the upper and lower bounds of an algorithm's time complexity, respectively.
+>
+> $Big O$ notation is usually used to describe the worst-case time complexity of an algorithm, which represents an upper bound on the amount of time the algorithm will take to solve a problem as the size of its inputs grows. It's commonly used to describe the scalability of an algorithm, so it's often considered to be a property of the algorithm's implementation.
+>
+> Omega $(\Omega)$ notation, on the other hand, is used to describe the best-case time complexity of an algorithm, which represents a lower bound on the amount of time the algorithm will take to solve a problem. It's used to describe the minimum amount of time an algorithm will take, so it's often considered to be a property of the problem, not the implementation.
+>
+> In either case, the notation provides a way to describe and compare the time complexity of algorithms, which is useful for selecting the most appropriate algorithm for a given problem and understanding how the running time of an algorithm will grow as the size of its inputs grows.
 
 ---
 

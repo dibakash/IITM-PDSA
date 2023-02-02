@@ -29,7 +29,6 @@ def main():
     print("using modulo", f"{mean(modulo):.4f}")
 
 
-
 def is_even_bitwise(n: int) -> bool:
     """check if a number is even or odd
 
