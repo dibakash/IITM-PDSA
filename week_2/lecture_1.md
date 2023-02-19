@@ -151,7 +151,7 @@ We want to know as $n$ becomes larger, which of the algorithms perform better. T
 >   - After $n = 5000$, $f(n)$ overtakes $g(n)$
 >     - $6000^3 > 5000 \times 6000^2$
 
-We are interested in this $ t (n)$ in different forms that occur as different growth functions-
+We are interested in this $t (n)$ in different forms that occur as different growth functions-
 
 > Typical growth functions
 >
