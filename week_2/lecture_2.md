@@ -80,7 +80,7 @@ As discussed before (fig. 1), to show that something is BigO of a function say $
   >
   > - choose $n_o = 1$, $c=105$
   >
-  > So, we found $c=105$ and $n_o = 5 $ for which $100n+5 \le 105n \le c \cdot g(n)$, i.e. $f(n) \le c \cdot g(n)$ holds true.
+  > So, we found $c=105$ and $n_o = 5$ for which $100n+5 \le 105n \le c \cdot g(n)$, i.e. $f(n) \le c \cdot g(n)$ holds true.
   >
   > Therefore, $100n + 5$ is $BigO(n^2)$
   >
