@@ -200,7 +200,7 @@ Recurrence
   >
   > $\therefore M(1)=1$
 
-- $M(n) = M(n-1) + 1 + M(n-1) + 1 = 2M(n-1) + 1$
+- $M(n) = M(n-1) + 1 + M(n-1) = 2M(n-1) + 1$
 
   > 1. Move $n-1$ disks from A to C i.e $M(n-1)$
   >
