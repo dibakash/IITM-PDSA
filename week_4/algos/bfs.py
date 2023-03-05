@@ -23,26 +23,24 @@ class Queue:
 
 
 def BFS(AList, v):
-    level, parent = {}, {}
+    visited, parent = {}, {}
     q = Queue()
 
     for i in AList.keys():
-        level[i] = -1
+        visited[i] = False
         parent[i] = -1
 
-    level[v] = 0
+    visited[v] = True
     q.enqueue(v)
 
     while not q.isempty():
         j = q.dequeue()
-
         for k in AList[j]:
-            if level[k] == -1:
-                level[k] = level[j] + 1
+            if not visited[k]:
+                visited[k] = True
                 parent[k] = j
                 q.enqueue(k)
-
-    return level, parent
+    return visited, parent
 
 
 AList = {0: [1, 2], 1: [3, 4], 2: [4, 3], 3: [4], 4: []}
