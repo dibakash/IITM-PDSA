@@ -5,20 +5,24 @@ compare_ans = sorted(L)
 
 
 def merge(left, right):
-    l, r = len(left), len(right)
-    res, i, j, k = [], 0, 0, 0
+    left_len, right_len = len(left), len(right)
+    i, j = 0, 0
+    res, k = [], 0
 
-    while k < l + r:
-        if i == l:  # left list is empty
+    while k < left_len + right_len:
+        if i == left_len:  # left list is empty
             res.extend(right[j:])
-            k += r - j
-        elif j == r:  # right list is empty
+            k += right_len - j
+
+        elif j == right_len:  # right list is empty
             res.extend(left[i:])
-            k += l - i
+            k += left_len - i
+
         elif left[i] < right[j]:
             res.append(left[i])
             i += 1
             k += 1
+
         else:
             res.append(right[j])
             j += 1

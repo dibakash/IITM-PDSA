@@ -11,12 +11,11 @@ def selection_sort(L):
 
     for i in range(n - 1):
         min_index = i
-        if L[i + 1] < L[i]:
-            for j in range(i + 1, n):
-                if L[j] < L[min_index]:
-                    min_index = j
+        for j in range(i + 1, n):
+            if L[j] < L[min_index]:
+                min_index = j
 
-            L[i], L[min_index] = L[min_index], L[i]
+        L[i], L[min_index] = L[min_index], L[i]
 
 
 print(L)

@@ -292,10 +292,10 @@ $$
 \end{array}
 \rightarrow
 \begin{array}{rl}
-23\color{yellow}7 \\
-{+\ 89 \color{yellow}5} \\
+23\color{red}7 \\
+{+\ 89 \color{red}5} \\
 \hline
-113\color{yellow}2
+113\color{red}2
 \end{array}
 $$
 

@@ -10,8 +10,3 @@ def prime(n):
             result = False
         i += 1
     return result
-
-
-for i in range(10):
-    if prime(i):
-        print(f"{i} is a prime number")
