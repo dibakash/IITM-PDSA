@@ -37,7 +37,36 @@ def merge_sort(L):
     return merge(left, right)
 
 
+def merge_sort_v2(L):
+    if len(L) <= 1:
+        return L
+    mid = len(L) // 2
+    left = merge_sort_v2(L[:mid])
+    right = merge_sort_v2(L[mid:])
+
+    return merge_v2(left, right)
+
+
+def merge_v2(left, right):
+    l, r = len(left), len(right)
+    res, i, j = [], 0, 0
+
+    while i < l and j < r:
+        if left[i] <= right[j]:
+            res.append(left[i])
+            i += 1
+        else:
+            res.append(right[j])
+            j += 1
+
+    res += left[i:]
+    res += right[j:]
+
+    return res
+
+
 print(L)
-L = merge_sort(L)
+# L = merge_sort(L)
+L = merge_sort_v2(L)
 print(L)
 print("correct" if compare_ans == L else "wrong")

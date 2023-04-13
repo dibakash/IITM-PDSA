@@ -13,10 +13,21 @@ Here, the difference between the maximum value and the minimum value in both sub
 
 
 def find_Min_Difference(L, P):
+    # L= 3,4,1,9,56,7,9,12,13
     L.sort()
-    
+    # L= 1,3,4,7,9,9,12,13,56
+    n = len(L)
+    min_diff = float("inf")
+    count = 0
+    for i in range(0, n - P + 1):
+        if L[i + P - 1] - L[i] < min_diff:
+            min_diff = L[i + P - 1] - L[i]
+            count += 1
 
+    return min_diff
 
-L = eval(input().strip())
-P = int(input())
-print(find_Min_Difference(L, P))
+if __name__ == "__main__":
+
+    L = eval(input().strip())
+    P = int(input())
+    print(find_Min_Difference(L, P))

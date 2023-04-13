@@ -1,14 +1,18 @@
 # python week_2/algos/quick_sort.py
 
-L = [11, 11, 7, 10, 15, 6, 4, 13, 11, 1, 6, 6, 4, 4, 10]
-
-compare_result = sorted(L)
-
 
 def quick_sort(L, l, r):
+    """
+    The quick_sort function takes an array L and two indices l and r that define the range of the subarray to sort.
+    """
+    # If the range of the subarray is less than or equal to 1, the function returns the subarray since it is already sorted.
     if r - l <= 1:
         return L
+
+    # Otherwise, the function selects the first element (pivot) as the pivot element and initializes two pointers: lower and upper both starting at l + 1.
     pivot, lower, upper = L[l], l + 1, l + 1
+
+    # The function then iterates over the elements of the subarray from l + 1 to r. If an element is greater than the pivot, the upper pointer is incremented. If an element is less than or equal to the pivot, the element is exchanged with the element at lower and both pointers are incremented.
     for i in range(l + 1, r):
         if L[i] > pivot:  # extend upper segment
             upper += 1
@@ -16,16 +20,28 @@ def quick_sort(L, l, r):
             L[i], L[lower] = L[lower], L[i]
             # shift both segments
             lower, upper = lower + 1, upper + 1
+
+    # After the loop completes, the function exchanges the pivot element with the element at lower - 1. This ensures that all elements to the left of lower - 1 are less than or equal to the pivot, and all elements to the right of lower - 1 are greater than the pivot.
     # move the pivot between lower and upper
+
     L[l], L[lower - 1] = L[lower - 1], L[l]
+
+    # The function then recursively calls quick_sort on the subarray to the left of the pivot (from l to lower - 1) and the subarray to the right of the pivot (from lower to upper). This process continues until all subarrays have length 0 or 1, and the entire array is sorted.
+
     # prepare new segment boundaries
     lower = lower - 1
     # sort left
     quick_sort(L, l, lower)
     # sort right
     quick_sort(L, lower + 1, upper)
+
+    # Finally, the function returns the sorted subarray.
     return L
 
+
+L = [11, 11, 7, 10, 15, 6, 4, 13, 11, 1, 6, 6, 4, 4, 10]
+
+compare_result = sorted(L)
 
 print(L)
 quick_sort(L, 0, len(L))
