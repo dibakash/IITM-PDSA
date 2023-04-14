@@ -494,8 +494,8 @@ tc_grpa3 = {
 
 
 def test_grpa3():
-    for tc, (i,o) in tc_grpa3.items():
-        assert 
+    for tc, (i, o) in tc_grpa3.items():
+        assert ...
 
 
 if __name__ == "__main__":

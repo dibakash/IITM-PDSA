@@ -77,7 +77,7 @@ class doubly_linked_list:
                 temp = self.head
                 new_node.next = temp
                 temp.prev = new_node
-                self.head= new_node
+                self.head = new_node
 
                 # update last pointer
                 while temp.next != None:
@@ -101,8 +101,6 @@ class doubly_linked_list:
                 new_node.next = temp.next
                 temp.next = new_node
                 new_node.prev = temp
-
-
 
     # Suffix Code
 
