@@ -5,7 +5,7 @@ def quick_sort(L, l, r):
     """
     The quick_sort function takes an array L and two indices l and r that define the range of the subarray/slice to sort.
     """
-    # If the range of the subarray is less than or equal to 1, the function returns the subarray since it is already sorted.
+    # If the range of the subarray is less than or equal to 1, the function returns the subarray since it is already sorted (as only one element).
     if r - l <= 1:
         return L
 
